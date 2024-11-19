@@ -320,14 +320,14 @@ in
 
       # But no pre-composed gadgets
       USB_ZERO = no;
-      USB_AUDIO = no;
+      USB_AUDIO = yes;
       USB_ETH = no;
       USB_G_NCM = no;
       USB_GADGETFS = no;
       USB_FUNCTIONFS = no;
       USB_MASS_STORAGE = no;
       USB_G_SERIAL = no;
-      USB_MIDI_GADGET = no;
+      USB_MIDI_GADGET = yes;
       USB_G_PRINTER = no;
       USB_CDC_COMPOSITE = no;
       USB_G_ACM_MS = no;
@@ -397,6 +397,7 @@ in
       I2C = yes;
       I2C_HELPER_AUTO = yes;
       POWER_SUPPLY = yes;
+      SND_USB_AUDIO = yes;
       SND = yes;
       SOUND = yes;
       USB = yes;
