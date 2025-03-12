@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -22,7 +27,7 @@
   # Even though, we're eagerly adding firmware files that fit.
   # This is a workaround for non-modular kernels wanting to load the adsp firmware during stage-1.
   mobile.boot.stage-1.firmware = [
-    (pkgs.runCommand "initrd-firmware" {} ''
+    (pkgs.runCommand "initrd-firmware" { } ''
       cp -vrf ${config.mobile.device.firmware} $out
       chmod -R +w $out
       # Big file, fills and breaks stage-1
@@ -33,7 +38,6 @@
     '')
   ];
 
-
   mobile.system.type = "android";
   mobile.system.android = {
     # Assumed all SDM845 devices use A/B
@@ -43,7 +47,7 @@
       offset_base = "0x00000000";
       offset_kernel = "0x00008000";
       offset_ramdisk = "0x01000000";
-      offset_second = "0x00000000";
+      offset_second = "0x00f00000";
       offset_tags = "0x00000100";
       pagesize = "4096";
     };
