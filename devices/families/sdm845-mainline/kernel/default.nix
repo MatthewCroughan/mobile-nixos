@@ -14,6 +14,11 @@ mobile-nixos.kernel-builder {
     hash = "sha256-iNC5//u/MbAgJEYy3RcX1bhrPqoxSlxs4+3DzoXolQ4=";
   };
 
+  patches = [
+#    ./nfc.patch
+    ./nfc2.patch
+  ];
+
   isModular = false;
   isCompressed = "gz";
 }

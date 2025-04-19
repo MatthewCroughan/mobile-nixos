@@ -1,0 +1,34 @@
+--- ../arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dts	2024-03-10 00:46:13.216383418 +0100
++++ ../arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dts	2024-03-10 12:04:47.623643823 +0100
+@@ -1536,7 +1536,8 @@
+ 				interconnect-names = "qup-core\0qup-config\0qup-memory";
+ 				dmas = <0x3e 0x00 0x03 0x03 0x3e 0x01 0x03 0x03>;
+ 				dma-names = "tx\0rx";
+-				status = "disabled";
++				status = "okay";
++				clock-frequency = <0x61a80>;
+ 			};
+ 
+ 			spi@88c000 {
+@@ -3281,6 +3282,20 @@
+ 				bias-pull-up;
+ 				output-high;
+ 			};
++
++			nfc-ven-default-state {
++				pins = "gpio12";
++				function = "gpio";
++				drive-strength = <0x02>;
++				bias-pull-up;
++			};
++
++			nfc-int-default-state {
++				pins = "gpio63";
++				function = "gpio";
++				drive-strength = <0x02>;
++				bias-pull-up;
++			};
+ 		};
+ 
+ 		remoteproc@4080000 {
+
